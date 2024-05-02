@@ -15,6 +15,7 @@ router.post("/new", (req, res) => {
     date: new Date(),
     content: req.body.content,
     hashtags: req.body.hashtags,
+    token: req.body.token,
   });
   newTweet.save().then((data) => {
     res.json({ result: true, message: "tweet created", data: data });

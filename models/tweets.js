@@ -7,6 +7,7 @@ const tweetSchema = mongoose.Schema({
   content: String,
   likes: { type: [String], default: null },
   hashtags: { type: [String], default: null },
+  token: String,
 });
 
 const Tweet = mongoose.model("tweets", tweetSchema);
