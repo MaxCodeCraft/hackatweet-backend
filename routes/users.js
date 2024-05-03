@@ -20,6 +20,7 @@ router.post("/signup", (req, res) => {
         username: req.body.username,
         password: hash,
         token: uid2(32),
+        image: `https://api.multiavatar.com/${req.body.username}.png`,
       });
 
       newUser.save().then((data) => {
@@ -43,6 +44,13 @@ router.post("/signin", (req, res) => {
     } else {
       res.json({ result: false, error: "User not found or wrong password" });
     }
+  });
+});
+
+router.post("/find", (req, res) => {
+  User.findOne({ username: req.body.username }).then((data) => {
+    console.log(`isssss`, req.body.username);
+    res.json({ result: true, data: data, test: "test" });
   });
 });
 
