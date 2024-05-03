@@ -47,10 +47,9 @@ router.post("/signin", (req, res) => {
   });
 });
 
-router.post("/find", (req, res) => {
-  User.findOne({ username: req.body.username }).then((data) => {
-    console.log(`isssss`, req.body.username);
-    res.json({ result: true, data: data, test: "test" });
+router.post("/findtoken", (req, res) => {
+  User.findOne({ token: req.body.token }).then((data) => {
+    res.json({ result: true, data: data });
   });
 });
 
