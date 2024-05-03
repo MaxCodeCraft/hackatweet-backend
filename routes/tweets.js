@@ -8,6 +8,12 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/:id", (req, res) => {
+  Tweet.findById(req.params.id).then((data) => {
+    res.json({ result: true, data: data });
+  });
+});
+
 router.post("/new", (req, res) => {
   const newTweet = new Tweet({
     name: req.body.name,
