@@ -22,7 +22,7 @@ router.post("/new", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   Tweet.findByIdAndDelete(req.params.id).then(() => {
     res.json({ result: true });
   });
