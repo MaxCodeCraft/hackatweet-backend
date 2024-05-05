@@ -20,7 +20,7 @@ router.post("/signup", (req, res) => {
         username: req.body.username,
         password: hash,
         token: uid2(32),
-        image: `https://api.multiavatar.com/${req.body.username}.png`,
+        image: `https://robohash.org/${req.body.username}.png`,
       });
 
       newUser.save().then((data) => {
